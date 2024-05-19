@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xw.repo.supl.SlidingUpPanelLayout
+    android:id="@+id/sliding_up_panel_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- background view, the position at 0 can only have one directly view, it can be a view or a layout. -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bg_layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/acbc"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/pick_hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="120dp"
+            android:text="Pick a credit card to pay"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/pay_hint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
+            android:alpha="0.0"
+            android:drawablePadding="8dp"
+            android:drawableTop="@mipmap/ic_finger_print"
+            android:text="Pay with Touch ID"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:alpha="1.0"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- panel view, the position from 1 to n must be the one which implemented the interface ISlidingUpPanel.-->
+    <com.example.unlock.CardPanelView
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        app:cpv_cardCount="1"
+
+        app:cpv_cardPosition="0">
+        <View
+            android:layout_width="200dp"
+            android:layout_height="3dp"
+            android:id="@+id/view"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white"/>
+    </com.example.unlock.CardPanelView>
+
+
+</com.xw.repo.supl.SlidingUpPanelLayout>
